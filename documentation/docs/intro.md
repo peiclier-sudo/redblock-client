@@ -15,6 +15,20 @@ sidebar_position: 1
 - **Performance Optimized**: Object pooling, spatial partitioning, and efficient rendering
 - **Multiplayer Ready**: WebSocket-based multiplayer support
 
+
+## 🎮 Default FPS Controls
+
+Redblock now starts with an **AZERTY-friendly layout** and tuned movement for faster arena traversal:
+
+- **Move forward**: `Z`
+- **Move left**: `Q`
+- **Move backward**: `S`
+- **Move right**: `D`
+- **Jump**: `Space`
+- **Crouch**: `C`
+
+You can still remap every key from the in-game **Settings → Controls** tab.
+
 ## 🚀 Quick Start
 
 ### Prerequisites
