@@ -8,12 +8,12 @@ export default class Pistol extends Group {
 
   // recoil config
   private baseRot = new Euler(0, Math.PI / 2, 0);
-  private basePos = new Vector3(0.4, -0.3, -0.9);
-  private adjustedBasePos = new Vector3(0.4, -0.3, -0.9); // Position adjusted for FOV
-  private baseScale = 0.1; // Base scale
+  private basePos = new Vector3(0.24, -0.2, -0.62);
+  private adjustedBasePos = new Vector3(0.24, -0.2, -0.62); // Position adjusted for FOV
+  private baseScale = 0.14; // Bigger profile for sniper-like presence
   private adjustedScale = 0.1; // Scale adjusted for FOV
   private firing: boolean = false; // cooldown flag
-  private fireRate = 8; // shots per second
+  private fireRate = 1.2; // sniper cadence: deliberate single shots
   private tl?: gsap.core.Timeline;
   
   // Configurable edge thickness (radius of edge cylinders)
@@ -311,9 +311,9 @@ export default class Pistol extends Group {
 
     this.tl?.kill();
 
-    const kickZ = -0.07;
-    const tiltX = 0.18;
-    const twistZ = 0.06;
+    const kickZ = -0.2;
+    const tiltX = 0.34;
+    const twistZ = 0.12;
 
     this.position.copy(this.adjustedBasePos);
     this.rotation.copy(this.baseRot);

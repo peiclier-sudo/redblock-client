@@ -12,12 +12,12 @@ export default class Controls {
   private yawObject = new THREE.Object3D();
   private paused = false;
   private targets: Target[] = [];
-  private sensitivity = 0.0002; // Default sensitivity (CS2 = 1.0 maps to this value)
+  private sensitivity = 0.0012; // High default sensitivity for fast-paced FPS feel
   private PI_2 = Math.PI / 2;
-  private moveSpeed = 8;
+  private moveSpeed = 13;
   private velocity = new THREE.Vector3();
-  private acceleration = 0.07;
-  private damping = 0.9;
+  private acceleration = 0.18;
+  private damping = 0.92;
   private isCrouching = false;
   private standHeight = .8;  // Camera at eye level (lower for better ground feel)
   private crouchHeight = 0.4;  // Crouch camera height
@@ -71,9 +71,9 @@ export default class Controls {
 
   // Keybindings
   private keybindings = {
-    forward: "w",
+    forward: "z",
     backward: "s",
-    left: "a",
+    left: "q",
     right: "d",
     jump: "space",
     crouch: "c",

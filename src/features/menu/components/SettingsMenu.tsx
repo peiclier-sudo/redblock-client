@@ -33,9 +33,9 @@ type Keybindings = {
 };
 
 const DEFAULT_KEYBINDINGS: Keybindings = {
-  forward: "w",
+  forward: "z",
   backward: "s",
-  left: "a",
+  left: "q",
   right: "d",
   jump: "space",
   crouch: "c",
@@ -260,13 +260,13 @@ export default function SettingsMenu({ visible, onClose, hudScale = 100, hideBac
   // Selected game for sensitivity base
   const [selectedGameId, setSelectedGameId] = useState<string>(() => {
     const saved = localStorage.getItem("selectedSensitivityGame");
-    return saved || "cs2";
+    return saved || "the-finals";
   });
 
   // Sensitivity multiplier (slider value, defaults to 1.0)
   const [sensitivityMultiplier, setSensitivityMultiplier] = useState<string>(() => {
     const saved = localStorage.getItem("sensitivityMultiplier");
-    return saved ?? "1.0";
+    return saved ?? "3.0";
   });
 
   // Calculate final sensitivity: game base sensitivity * multiplier
@@ -1519,4 +1519,3 @@ export default function SettingsMenu({ visible, onClose, hudScale = 100, hideBac
     </div>
   );
 }
-

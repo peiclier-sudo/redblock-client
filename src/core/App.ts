@@ -958,7 +958,7 @@ function createEmptyStats(): StoredStats {
       if (this.paused) return;
       this.recordShotFired();
       
-      this.audioManager.play('lazer01_1', { volume: 0.35, startAtMs: 0, randomizePitch: true, pitchJitter: 0.02, maxVoices: 6 });
+      this.audioManager.play('lazer02_1', { volume: 0.6, startAtMs: 0, randomizePitch: false, maxVoices: 2 });
       
       this.pistol.shoot();
 

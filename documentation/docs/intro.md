@@ -15,6 +15,22 @@ sidebar_position: 1
 - **Performance Optimized**: Object pooling, spatial partitioning, and efficient rendering
 - **Multiplayer Ready**: WebSocket-based multiplayer support
 
+
+## 🎮 Default FPS Controls
+
+Redblock now starts with an **AZERTY-friendly layout**, **high-sensitivity mouse defaults**, and sniper-style weapon pacing for faster arena traversal:
+
+- **Move forward**: `Z`
+- **Move left**: `Q`
+- **Move backward**: `S`
+- **Move right**: `D`
+- **Jump**: `Space`
+- **Crouch**: `C`
+- **Default mouse sensitivity profile**: `The Finals × 3.00`
+- **Weapon feel**: single-shot sniper cadence with stronger recoil
+
+You can still remap every key from the in-game **Settings → Controls** tab and tweak sensitivity from **Settings → Sensitivity**.
+
 ## 🚀 Quick Start
 
 ### Prerequisites
