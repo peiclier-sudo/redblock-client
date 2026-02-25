@@ -33,9 +33,9 @@ type Keybindings = {
 };
 
 const DEFAULT_KEYBINDINGS: Keybindings = {
-  forward: "w",
+  forward: "z",
   backward: "s",
-  left: "a",
+  left: "q",
   right: "d",
   jump: "space",
   crouch: "c",
@@ -1519,4 +1519,3 @@ export default function SettingsMenu({ visible, onClose, hudScale = 100, hideBac
     </div>
   );
 }
-
