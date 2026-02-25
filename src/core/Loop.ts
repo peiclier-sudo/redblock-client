@@ -222,6 +222,7 @@ export default class Loop {
     }
     
     this.pistol.update(this.deltaTime, this.camera);
+    this.scene.updateMonsterRush(this.controls.object.position, this.deltaTime);
     this.scene.update();
     
     // Update respawn effect if available

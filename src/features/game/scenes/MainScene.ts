@@ -88,6 +88,12 @@ export default class MainScene extends THREE.Scene {
   private currentRoomMesh: THREE.Group | null = null;
   private frameCount = 0;
   private readonly neighborUpdateInterval = 2; // Update neighbors every N frames for performance
+  private readonly rushMonsterSpeed = 4.8;
+  private readonly rushMonsterStopDistance = 0.9;
+
+  // Reusable objects for monster rush movement
+  private _tempRushTarget = new THREE.Vector3();
+  private _tempRushDirection = new THREE.Vector3();
   
   // Reusable objects for neighbor updates to avoid allocations
   private _tempTargetPos = new THREE.Vector3();
@@ -235,6 +241,15 @@ export default class MainScene extends THREE.Scene {
     
     // Update legacy targets array for compatibility with existing code
     this.targets = newTargets;
+
+    // Horde mode: when many targets are spawned, let all of them be shootable immediately
+    if (amount >= 20) {
+      for (const target of this.targets) {
+        if (target.visible && !target.animating) {
+          target.makeShootable();
+        }
+      }
+    }
     
     console.log(`[MainScene] Loaded scenario with ${newTargets.length} targets`);
   }
@@ -246,6 +261,32 @@ export default class MainScene extends THREE.Scene {
   public generateCubes(amount: number, roomCoordX: number, roomCoordZ: number, halfSize: boolean = false) {
     console.warn('[MainScene] generateCubes is deprecated, use loadScenario instead');
     this.loadScenario(amount, halfSize);
+  }
+
+
+  /**
+   * Move active targets toward the player to create a rushing-monster behavior.
+   */
+  public updateMonsterRush(playerPosition: THREE.Vector3, deltaTime: number) {
+    if (this.targets.length === 0) return;
+
+    this._tempRushTarget.copy(playerPosition);
+    this._tempRushTarget.y = 0.4;
+
+    for (const target of this.targets) {
+      if (!target.visible || target.animating) continue;
+
+      this._tempRushDirection.copy(this._tempRushTarget).sub(target.position);
+      const distance = this._tempRushDirection.length();
+      if (distance <= this.rushMonsterStopDistance) continue;
+
+      this._tempRushDirection.divideScalar(distance);
+      const step = Math.min(distance - this.rushMonsterStopDistance, this.rushMonsterSpeed * deltaTime);
+      target.position.addScaledVector(this._tempRushDirection, step);
+
+      // Face the player while rushing
+      target.lookAt(this._tempRushTarget);
+    }
   }
 
   private updateNeighborTargets(neighborId: string, targetsInfo: TargetInfo[]) {

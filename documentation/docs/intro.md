@@ -28,6 +28,7 @@ Redblock now starts with an **AZERTY-friendly layout**, **high-sensitivity mouse
 - **Crouch**: `C`
 - **Default mouse sensitivity profile**: `The Finals × 3.00`
 - **Weapon feel**: single-shot sniper cadence with stronger recoil
+- **Default scenario**: `Monster Rush` (high enemy count that rushes your position)
 
 You can still remap every key from the in-game **Settings → Controls** tab and tweak sensitivity from **Settings → Sensitivity**.
 

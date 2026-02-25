@@ -7,7 +7,7 @@ export type ScenarioConfig = {
 };
 
 export const SCENARIOS: ScenarioConfig[] = [
-  { id: "scenario-1", label: "Quick Warmup", targetCount: 3, mapFile: "/scenario/first-map.rbonline" },
+  { id: "scenario-1", label: "Monster Rush", targetCount: 36 },
   { id: "scenario-2", label: "Precision", targetCount: 8, targetScale: 0.2 },
   { id: "scenario-3", label: "Marathon", targetCount: 50 },
 ];
